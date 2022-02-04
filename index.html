@@ -17,7 +17,7 @@
         <div class="nav container">
             <a href="#" class="logo">Ecommerce</a>
           <!-- Cart Icons--> 
-          <i class='bx bx-shopping-bag' id="cart-icon"></i> 
+          <i class='bx bx-shopping-bag' id="cart-icon" onclick="openCart()"></i> 
           <!-- All the cart markup-->
           <div class="cart">
            <h2 class="cart-title">Your Cart</h2>
@@ -46,7 +46,7 @@
         <button type="button" class="btn-buy">Buy Now</button>
 
         <!-- Cart Close Button-->
-        <i class='bx bx-x' id="close-cart"></i>
+        <i class='bx bx-x' id="close-cart" onclick="closeCart()"></i>
           </div>
         </div>
     </header>
@@ -114,5 +114,7 @@
             </div>        
         </div>
     </section>
+    <!-- Link to JS -->
+    <script src="./js/main.js"></script>
 </body>
 </html>
