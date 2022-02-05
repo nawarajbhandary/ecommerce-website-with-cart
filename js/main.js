@@ -22,3 +22,49 @@ function closeCart() {
     yesCart.classList.remove("active");
   });
 }
+
+//cart working JS
+
+if (document.readyState == "loading") {
+  document.addEventListener("DOMContentLoaded", ready);
+} else {
+  ready(); // Ready from ekse condition
+}
+
+//Making ready function
+
+function ready() {
+  //Remove item from Cart
+  var removecartCartButtons = document.getElementsByClassName("cart-remove");
+  console.log(removecartCartButtons);
+
+  for (var i = 0; i < removecartCartButtons.length; i++) {
+    var button = removecartCartButtons[i];
+    button.addEventListener("click", removeCartItem);
+  }
+}
+
+//Remove Item from cart function Invoked
+
+function removeCartItem(event) {
+  var buttonClicked = event.target;
+  buttonClicked.parentElement.remove();
+  updateTotal();
+}
+
+//Update Total
+
+function updateTotal() {
+  var cartContent = document.getElementsByClassName("cart-content")[0];
+  var cartBoxes = cartContent.getElementsByClassName("cart-box");
+  var total = 0;
+
+  for (var i = 0; i < cartBoxes.length; i++) {
+    var cartBox = cartBoxes[i];
+    var priceElement = cartBox.getElementsByClassName("cart-price")[0];
+    var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
+    var price = parseFloat(priceElement.innerText.replace("$", ""));
+    var quantity = quantityElement.value;
+    total = total + price * quantity;
+  }
+}
